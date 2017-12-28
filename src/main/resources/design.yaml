@@ -1,0 +1,104 @@
+# this is an example of the Uber API
+# as a demonstration of an API spec in YAML
+swagger: '2.0'
+info:
+  title: Virtual Shopping Product API
+  description: Search Items from different Vendors and purchase online.
+  version: "1.0.0"
+# the domain of the service
+host: localhost:9999
+# array of all schemes that your API supports
+schemes:
+  - http
+# will be prefixed to all paths
+basePath: /order-service
+produces:
+  - application/json
+paths:
+  /placeOrder:
+    post:
+      tags:
+        - Order
+      summary: Order An Item.
+      description: ""
+      operationId: placeOrder
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Create aproduct
+          required: false
+          schema:
+            $ref: "#/definitions/Order"
+      responses:
+        200:
+          description: Product Created
+          schema:
+            type: integer
+            description: Product Id
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+
+  /orderList:
+    get:
+      summary: Get List Of all oreders by e-mail id
+      description: Get List Of all placed orders
+      parameters:
+        - name: email
+          in: query
+          description: Return all items for e-mail id
+          required: true
+          type: string
+ 
+      tags:
+        - Order
+      responses:
+        200:
+          description: A list of all available vendors
+          schema:
+           $ref: '#/definitions/Order'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+definitions:
+  Order:
+    type: object
+    properties:
+      productId:
+        type: integer
+      price:
+        type: number
+        description: Proce of product
+      quantity:
+        type: integer
+        description: Ordered Quantity
+      email:
+        type: string
+        description: Email
+      address:
+        type: string
+        description: Address
+      contactnumber:
+        type: string
+        description: Contact Number
+      orderstatus:
+        type: string
+        description: Order Status
+      orderdate:
+        type: string
+        description: Order Placed on
+
+  Error:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      fields:
+        type: string
