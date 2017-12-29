@@ -34,7 +34,7 @@ public class JmsConfiguration {
 	@Bean(name = ACTIVE_MQ_CONNECTION_FACTORY)
 	public ConnectionFactory jsmConnectionFactory() {
 		return new ActiveMQConnectionFactory("admin", "admin",
-				"tcp://IMPETUS-NL203:61616");
+				"tcp://IMPETUS-NL133:61616");
 	}
 
 	@Bean(name = JMS_TEMPLATE)
