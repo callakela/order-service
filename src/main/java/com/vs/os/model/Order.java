@@ -15,6 +15,7 @@ import com.google.gson.Gson;
 /**
  * Order
  */
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.SpringCodegen", date = "2016-09-17T10:01:03.258Z")
 @Entity
 @Table(name = "VS_ORDER")
 public class Order implements Serializable {

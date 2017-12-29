@@ -14,6 +14,7 @@ import com.vs.os.configuration.JmsConfiguration;
 import com.vs.os.dao.OrderDAO;
 import com.vs.os.model.Order;
 
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.SpringCodegen", date = "2016-09-17T10:01:03.258Z")
 @Controller
 public class PlaceOrderApiController implements PlaceOrderApi {
 

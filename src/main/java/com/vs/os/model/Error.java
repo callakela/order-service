@@ -12,6 +12,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * Error
  */
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.SpringCodegen", date = "2016-09-17T10:01:03.258Z")
 
 public class Error   {
   private Integer code = null;
