@@ -15,7 +15,7 @@ public class StockValidationQueueProcessor implements Processor {
 		Order order = new Order()
 				.getObject((String) exchange.getIn().getBody());
 
-		if (order.getEmail().equalsIgnoreCase("write2ptiwari@gmail.com")) {
+		if (order.getEmail().equalsIgnoreCase("callakela@gmail.com")) {
 
 			exchange.getOut().setHeader("validation-status", "pass");
 		} else {

@@ -11,8 +11,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.vs.os.configuration.JmsConfiguration;
-import com.vs.os.dao.OrderDAO;
 import com.vs.os.model.Order;
+import com.vs.os.service.OrderService;
 
 @Controller
 public class PlaceOrderApiController implements PlaceOrderApi {
@@ -20,14 +20,14 @@ public class PlaceOrderApiController implements PlaceOrderApi {
 	@Autowired
 	@Qualifier(JmsConfiguration.JMS_TEMPLATE)
 	private JmsTemplate jmsTemplate;
-
-	@Autowired
-	private OrderDAO orderDAO;
-
+	
+    @Autowired
+    OrderService orderService;
+    
 	public ResponseEntity<Integer> placeOrder(
 			@ApiParam(value = "Create aproduct") @RequestBody Order order) {
 
-		orderDAO.persist(order);
+		orderService.persist(order);
 		jmsTemplate.convertAndSend(JmsConfiguration.STOCK_VALIDATION_QUEUE,
 				order.getJson());
 

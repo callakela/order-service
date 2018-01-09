@@ -20,7 +20,7 @@ public class OrderListApiController implements OrderListApi {
 
 
 ) {
-        // do some magic!
+        
         return new ResponseEntity<Order>(HttpStatus.OK);
     }
 
